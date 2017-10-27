@@ -1,18 +1,39 @@
 <?php
 abstract class Vehicle {
+  protected $id;
   protected $type;
   protected $mark;
   protected $color;
   protected $description;
 
 
-  public function __construct($type,$mark,$color,$description){
-    $this->setType($type);
-    $this->setMark($mark);
-    $this->setColor($color);
-    $this->setDescription($description);
+  public function __construct(array $data){
+    $this->hydrate($data);
   }
 
+  public function hydrate(array $data)
+  {
+    foreach ($data as $key => $value) {
+      $method = 'set' . ucfirst($key);
+      if (method_exists($this,$method)) {
+      $this->$method($value);
+      }
+    }
+  }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $id = (int)$id;
+          if ($id > 0)
+      {
+        $this->id = $id;
+      }
+    }
 
     public function getType()
     {
@@ -21,8 +42,10 @@ abstract class Vehicle {
 
     public function setType($type)
     {
-        $this->type = $type;
-        return $this;
+            if (is_string($type))
+        {
+          $this->type = $type;
+        }
     }
 
 
@@ -33,8 +56,10 @@ abstract class Vehicle {
 
     public function setMark($mark)
     {
+          if (is_string($mark))
+      {
         $this->mark = $mark;
-        return $this;
+      }
     }
 
     public function getColor()
@@ -44,8 +69,10 @@ abstract class Vehicle {
 
     public function setColor($color)
     {
-        $this->color = $color;
-        return $this;
+            if (is_string($color))
+        {
+          $this->color = $color;
+        }
     }
 
 
@@ -56,8 +83,11 @@ abstract class Vehicle {
 
     public function setDescription($description)
     {
-        $this->description = $description;
-        return $this;
+            if (is_string($description))
+        {
+          $this->description = $description;
+        }
     }
+
 
 }
