@@ -1,4 +1,6 @@
 <?php
+
+// class abstract Vehicle
 abstract class Vehicle {
   protected $id;
   protected $type;
@@ -10,6 +12,7 @@ abstract class Vehicle {
   public function __construct(array $data){
     $this->hydrate($data);
   }
+
 
   public function hydrate(array $data)
   {

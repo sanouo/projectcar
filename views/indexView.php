@@ -2,7 +2,7 @@
   include("template/header.php")
  ?>
 
- <form action="controllers/indexControllers.php" method="post">
+ <!-- <form action="../controllers/indexControllers.php" method="post">
    <div class="form-group">
      <input type="text" class="form-control" id="formGroupExampleInput" name="type"  placeholder="type">
    </div>
@@ -15,17 +15,10 @@
    <div class="form-group">
      <input type="text" class="form-control description" id="formGroupExampleInput3" name="description" placeholder="description">
    </div>
-   <!-- <div class="form-group">
-     <input type="text" class="form-control" id="formGroupExampleInput5" name="task" placeholder="task">
-   </div> -->
-
-   <!-- <div class="form-group">
-     <input type="text" class="form-control" id="formGroupExampleInput3" name="stage" placeholder="stage">
-   </div> -->
    <button type="submit" value="Submit" class="btn btn-primary submi">Submit</button>
- </form>
+ </form> -->
 
-
+<!--
  <table>
    <thead>
 
@@ -44,6 +37,8 @@
   ?>
 </tbody>
  </table>
+-->
+
  <?php
    include("template/footer.php")
   ?>

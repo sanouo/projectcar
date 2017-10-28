@@ -1,11 +1,17 @@
 <?php
-require ('model/connexion.php');
- require("model/ClientManager.php");
+// call of the database
+require("model/connexion.php");
+
+// call of the Class ClientManager
+require("model/ClientManager.php");
+
+// load all class
 function loadClass($class) {
-  require("../entities/" . $class . ".php");
+  require("entities/" . $class . ".php");
 }
 spl_autoload_register("loadClass");
 
+// create object $manager type ClientManager
 $manager = new ClientManager($bdd);
 
 if (isset($_POST['type']) && isset($_POST['mark']) && isset($_POST['color'])&& isset($_POST['description'])) {
@@ -25,10 +31,10 @@ if (isset($_POST['type']) && isset($_POST['mark']) && isset($_POST['color'])&& i
 
 
 $vehicules = $manager->getList();
-var_dump($vehicules);
+// var_dump($vehicules);
 
 // convertir $vehicule [ [], [], [], ] -> [objet, Objet, obje]
 
-var_dump($vehicules);
-//affiche la vue avec forach $vehicules
+// var_dump($vehicules);
+//affiche la vue avec foreach $vehicules
 //require 'views/indexView.php';
