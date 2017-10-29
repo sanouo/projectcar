@@ -9,6 +9,12 @@ class ClientManager {
         $this->setBdd($bdd);
       }
 
+// setters for bdd
+       public function setBdd(PDO $bdd)
+       {
+          $this->bdd = $bdd;
+       }
+
 // Execute a INSERT request
       public function add($auto)
       {
@@ -38,14 +44,24 @@ class ClientManager {
 
       public function getList()
       {
-        // Retourne la liste de tous les personnages.
-
-        // $req = $this->bdd->prepare();
+        // $req = $this->bdd->prepare('SELECT * FROM vehicle');
         // $req->execute();
         // $vehicules= $req->fetchAll();
         //
         // return $vehicules;
+
+        $req = $bdd->prepare('SELECT * FROM vehicle WHERE type = :type AND mark = :mark AND color = :color AND description = :description');
+        $req->execute(array(
+            'type' => $_POST['type'],
+            'mark' => $_POST['mark'],
+            'color' => $_POST['color'],
+            'description' => $_POST['description']));
+        $resultat = $req->fetch();
+
       }
+
+
+
 
 // Execute a UPDATE request
       public function update(Vehicle $auto)
@@ -55,11 +71,6 @@ class ClientManager {
         // Exécution de la requête.
       }
 
-// setters for bdd
-      public function setBdd(PDO $bdd)
-      {
-        $this->bdd = $bdd;
-      }
     }
 
 

@@ -16,7 +16,7 @@ $manager = new ClientManager($bdd);
 
 if (isset($_POST['type']) && isset($_POST['mark']) && isset($_POST['color'])&& isset($_POST['description'])) {
    $donnees = [
-      "type" => $_POST['type'],
+        "type" => $_POST['type'],
         "mark" => $_POST['mark'],
         "color" => $_POST['color'],
         "description" => $_POST['description'],
@@ -24,13 +24,23 @@ if (isset($_POST['type']) && isset($_POST['mark']) && isset($_POST['color'])&& i
       if ($donnees['type'] == 'Moto') {
         $vehicule = new Motorbike($donnees);
       }
+      else if ($donnees['type'] == 'Car') {
+        $vehicule = new Car($donnees);
+      }
+      else if ($donnees['type'] == 'Truck') {
+        $vehicule = new Truck($donnees);
+      }
+      else {
+        echo "Enter the correct type";
+      }
       $manager->add($vehicule);
       header("Location: index.php");
 }
 
 
 
-$vehicules = $manager->getList();
+
+// $vehicules = $manager->getList();
 // var_dump($vehicules);
 
 // convertir $vehicule [ [], [], [], ] -> [objet, Objet, obje]
