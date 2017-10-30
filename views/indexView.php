@@ -20,25 +20,33 @@
 
 
  <!-- start of the div class container -->
-         <!-- <div class="container">
+         <div class="container">
            <div class="row">
+
+<?php foreach ($donnees as $key => $value){
+
+  ?>
 
 
              <div class="card carte col-12 col-md-6 col-lg-4">
                <div class="card-block">
-               <h3 class="card-title"><?php echo $donnees['type']; ?></h3>
-               <p class="card-text"><?php echo $donnees['mark']; ?></p>
-               <p class="card-text"><?php echo $donnees['color']; ?></p>
-               <p class="card-text"><?php echo $donnees['description']; ?></p>
-               <a href="detailprojet.php?detail=<?php echo $donnees['id']; ?>" class="btn btn-primary tonbou detail">Detail</a><br>
-               <a href="supprim.php?sup=<?php echo $donnees['id']; ?>"><i class="material-icons">delete</i></a>
+               <h3 class="card-title"><?php echo $value['type']; ?></h3>
+               <p class="card-text"><?php echo $value['mark']; ?></p>
+               <p class="card-text"><?php echo $value['color']; ?></p>
+               <p class="card-text"><?php echo $value['description']; ?></p>
+               <!-- <a href="detailprojet.php?detail=<?php echo $value['id']; ?>" class="btn btn-primary tonbou detail">Detail</a><br>
+               <a href="supprim.php?sup=<?php echo $value['id']; ?>"><i class="material-icons">delete</i></a> -->
                </div>
              </div>
 
 
 
            </div>
-         </div> -->
+         </div>
+         <?php
+           }
+         ?>
+
  <!-- end of the div class container -->
 
 

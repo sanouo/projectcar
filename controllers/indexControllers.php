@@ -37,6 +37,7 @@ if (isset($_POST['type']) && isset($_POST['mark']) && isset($_POST['color'])&& i
       header("Location: index.php");
 }
 
+$donnees= $manager->getList();
 
 
 

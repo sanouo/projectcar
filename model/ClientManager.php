@@ -50,14 +50,10 @@ class ClientManager {
         //
         // return $vehicules;
 
-        $req = $bdd->prepare('SELECT * FROM vehicle WHERE type = :type AND mark = :mark AND color = :color AND description = :description');
-        $req->execute(array(
-            'type' => $_POST['type'],
-            'mark' => $_POST['mark'],
-            'color' => $_POST['color'],
-            'description' => $_POST['description']));
-        $resultat = $req->fetch();
-
+        $req = $this->bdd->prepare('SELECT * FROM vehicle');
+        $req->execute();
+        $donnees = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $donnees;
       }
 
 
