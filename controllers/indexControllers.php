@@ -37,11 +37,15 @@ if (isset($_POST['type']) && isset($_POST['mark']) && isset($_POST['color'])&& i
       header("Location: index.php");
 }
 
+if(isset($_GET['auto'])){
+  $donnees= $manager->delete($_GET['auto']);
+}
+
 $donnees= $manager->getList();
 
 
 
-// $vehicules = $manager->getList();
+
 // var_dump($vehicules);
 
 // convertir $vehicule [ [], [], [], ] -> [objet, Objet, obje]

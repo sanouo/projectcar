@@ -29,9 +29,9 @@ class ClientManager {
       }
 
 // Execute a DELETE request
-      public function delete(Vehicle $auto)
+      public function delete($auto)
       {
-
+        $req = $this->bdd->exec('DELETE FROM vehicle WHERE id = '.$auto);
       }
 
 // Execute a SELECT request
@@ -44,12 +44,6 @@ class ClientManager {
 
       public function getList()
       {
-        // $req = $this->bdd->prepare('SELECT * FROM vehicle');
-        // $req->execute();
-        // $vehicules= $req->fetchAll();
-        //
-        // return $vehicules;
-
         $req = $this->bdd->prepare('SELECT * FROM vehicle');
         $req->execute();
         $donnees = $req->fetchAll(PDO::FETCH_ASSOC);

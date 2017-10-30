@@ -34,8 +34,8 @@
                <p class="card-text"><?php echo $value['mark']; ?></p>
                <p class="card-text"><?php echo $value['color']; ?></p>
                <p class="card-text"><?php echo $value['description']; ?></p>
-               <!-- <a href="detailprojet.php?detail=<?php echo $value['id']; ?>" class="btn btn-primary tonbou detail">Detail</a><br>
-               <a href="supprim.php?sup=<?php echo $value['id']; ?>"><i class="material-icons">delete</i></a> -->
+               <!-- <a href="detailprojet.php?detail=<?php echo $value['id']; ?>" class="btn btn-primary tonbou detail">Detail</a><br> -->
+               <a href="index.php?auto=<?php echo $value['id']; ?>"><i class="material-icons">delete</i></a>
                </div>
              </div>
 
